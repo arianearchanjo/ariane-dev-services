@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ariarch.dev — Ariane Archanjo</title>
+  <meta name="description" content="Desenvolvedor front-end especializada em sites, landing pages e interfaces modernas. Solicite seu orçamento." />
+
+  <!-- Fonts — brand kit: Raleway + Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+
+  <style>
+    /* ── Links rápidos para as outras páginas (chip no topo da navbar) ── */
+    .nav-page-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .nav-page-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      border: 1px solid transparent;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+    .nav-page-link:hover {
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border-color: var(--cyan-bd);
+    }
+    .nav-page-link.cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      border-color: var(--cyan);
+      font-weight: 700;
+    }
+    .nav-page-link.cta:hover {
+      background: #1ae0f5;
+      border-color: #1ae0f5;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 768px) {
+      .nav-page-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Início">
+        ariarch<span class="ext">.dev</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services"   class="nav-link">// serviços</a></li>
+        <li><a href="#about"      class="nav-link">// sobre</a></li>
+        <li><a href="#projects"   class="nav-link">// projetos</a></li>
+        <li><a href="#experience" class="nav-link">// trajetória</a></li>
+        <li><a href="#contact"    class="nav-link">// contato</a></li>
+      </ul>
+
+      <!-- Links para as outras páginas do site -->
+      <div class="nav-page-links">
+        <a href="pages/bio.html"     class="nav-page-link">Bio</a>
+        <a href="pages/precos.html"  class="nav-page-link">Preços</a>
+        <a href="https://wa.me/5541997392226?text=Oi!%20Vi%20seu%20portfólio%20e%20quero%20um%20orçamento" class="nav-page-link cta" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Orçamento
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-glow-a"></div>
+    <div class="hero-glow-b"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="dot"></span> disponível para novos projetos
+      </div>
+
+      <h1 class="hero-name reveal">
+        <span class="line">Seu negócio</span>
+        <span class="line accent2">merece um site</span>
+        <span class="line accent">que converte.</span>
+      </h1>
+
+      <p class="hero-tagline reveal">
+        Desenvolvo interfaces modernas e funcionais para empresas e projetos digitais.
+      </p>
+
+      <p class="hero-title reveal">
+        <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+      </p>
+
+      <p class="hero-desc reveal">
+        Sou Ariane Archanjo, desenvolvedora front-end com experiência em sistemas reais.
+        Transformo ideias em produtos digitais com código limpo, entrega no prazo e comunicação clara.
+      </p>
+
+      <div class="hero-cta reveal">
+        <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Solicitar orçamento
+        </a>
+        <a href="pages/precos.html" class="btn btn-outline-cyan">
+          <i class="fas fa-tags"></i> Tabela de Preços
+        </a>
+        <a href="#projects" class="btn btn-ghost">
+          <i class="fas fa-eye"></i> Ver projetos
+        </a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ===================== SERVIÇOS ===================== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-label reveal">
+        <span>// 01</span> o que eu faço
+      </div>
+      <h2 class="section-title reveal">
+        Serviços que <strong>geram resultado</strong>
+      </h2>
+      <p class="section-sub reveal">
+        Do briefing à entrega, desenvolvo soluções digitais completas para o seu negócio —
+        com foco em performance, estética e conversão.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <div class="service-name">Sites <strong>institucionais</strong></div>
+          <p class="service-desc">
+            Presença digital profissional para sua empresa ou marca. Design único, responsivo e
+            otimizado para SEO — pronto para impressionar desde o primeiro acesso.
+          </p>
+          <div class="service-benefit">
+            <i class="fas fa-arrow-right"></i>
+            Mais credibilidade e confiança para o cliente
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+          <div class="service-name">Landing <strong>pages</strong></div>
+          <p class="service-desc">
+            Páginas focadas em conversão para campanhas, produtos ou serviços.
+            CTA estratégico, hierarquia visual clara e carregamento rápido.
+          </p>
+          <div class="service-benefit">
+            <i class="fas fa-arrow-right"></i>
+            Mais leads e vendas para sua campanha
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-store"></i></div>
+          <div class="service-name">Sites para <strong>pequenos negócios</strong></div>
+          <p class="service-desc">
+            Cardápios digitais, catálogos de produtos, integração com WhatsApp e redes sociais.
+            Solução acessível com resultado profissional.
+          </p>
+          <div class="service-benefit">
+            <i class="fas fa-arrow-right"></i>
+            Venda online sem complexidade
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="service-name">Interfaces <strong>front-end</strong></div>
+          <p class="service-desc">
+            Desenvolvimento de interfaces para sistemas web, dashboards e aplicações.
+            HTML, CSS e JavaScript puros ou com React e Next.js.
+          </p>
+          <div class="service-benefit">
+            <i class="fas fa-arrow-right"></i>
+            Interface que o usuário quer usar
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE + DIFERENCIAIS ===================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label reveal">
+        <span>// 02</span> sobre mim
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title reveal">
+            Código limpo.<br><strong>Impacto real.</strong>
+          </h2>
+          <div class="about-body reveal">
+            <p>
+              Sou desenvolvedora front-end com experiência comprovada em sistemas reais —
+              não só em projetos de portfólio. Atuo na <strong>Prefeitura de Campina Grande do Sul</strong>
+              desenvolvendo sistemas municipais com Next.js, e tive passagem pela
+              <strong>Cidade Júnior</strong> no módulo financeiro com PostgreSQL.
+            </p>
+            <p>
+              Curso <strong>Engenharia de Software</strong> na Unibrasil (bolsista integral),
+              o que me mantém sempre atualizada com boas práticas de desenvolvimento.
+              Entrego projetos com organização, documentação e comunicação direta.
+            </p>
+            <p>
+              Para clientes: entrego o que foi combinado, no prazo, com código que pode crescer.
+            </p>
+          </div>
+          <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="btn btn-primary reveal">
+            <i class="fab fa-whatsapp"></i> Falar comigo
+          </a>
+        </div>
+
+        <div class="about-card-wrap reveal">
+          <div class="about-card">
+            <div class="card-line"></div>
+            <div class="card-inner">
+              <div class="card-row">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Curitiba / PR — atendo remotamente</span>
+              </div>
+              <div class="card-row">
+                <i class="fas fa-clock"></i>
+                <span>Resposta em até 24h</span>
+              </div>
+              <div class="card-row">
+                <i class="fas fa-file-contract"></i>
+                <span>Projetos com contrato e escopo definido</span>
+              </div>
+              <div class="card-row">
+                <i class="fas fa-code-branch"></i>
+                <span>Entrega com código documentado</span>
+              </div>
+              <div class="card-row">
+                <i class="fas fa-comments"></i>
+                <span>Comunicação clara durante todo o projeto</span>
+              </div>
+              <div class="card-row">
+                <i class="fas fa-circle" style="color: var(--green); font-size: 0.45rem;"></i>
+                <span>Disponível para novos projetos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diferenciais -->
+      <div class="section-label reveal" style="margin-top: 4rem;">
+        <span>// por que me escolher</span>
+      </div>
+      <div class="diffs-grid">
+        <div class="diff-card reveal">
+          <div class="diff-icon"><i class="fas fa-check-double"></i></div>
+          <div class="diff-title"><strong>Entrega</strong> no prazo</div>
+          <p class="diff-desc">Defino prazos realistas e cumpro. Você não fica esperando sem resposta.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon"><i class="fas fa-code"></i></div>
+          <div class="diff-title"><strong>Código</strong> limpo</div>
+          <p class="diff-desc">Código organizado, comentado e que pode ser mantido e evoluído facilmente.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon"><i class="fas fa-comments"></i></div>
+          <div class="diff-title"><strong>Comunicação</strong> direta</div>
+          <p class="diff-desc">Atualizações constantes. Sem sumiço, sem jargão técnico desnecessário.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="diff-title">100% <strong>responsivo</strong></div>
+          <p class="diff-desc">Tudo funciona perfeitamente no celular, tablet e desktop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJETOS ===================== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label reveal">
+        <span>// 03</span> portfólio
+      </div>
+      <h2 class="section-title reveal">Projetos <strong>entregues</strong></h2>
+      <p class="section-sub reveal">
+        Cada projeto aqui foi construído com um objetivo real — resolver um problema, gerar resultado
+        ou criar presença digital para alguém.
+      </p>
+
+      <div class="projects-grid">
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fas fa-palette"></i></div>
+            <div class="project-links">
+              <a href="https://cantinho-amigurumi.netlify.app/" target="_blank" rel="noopener" aria-label="Ver ao vivo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">Cantinho do <strong>Amigurumi</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            Presença digital completa para ateliê artesanal
+          </div>
+          <p class="project-desc">
+            Site institucional com catálogo de 6 coleções, galeria com filtros por categoria,
+            sistema de encomendas integrado ao WhatsApp e layout responsivo do zero.
+          </p>
+          <div class="project-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            <span>Bootstrap 5</span><span>Netlify</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fas fa-store"></i></div>
+            <div class="project-links">
+              <a href="https://churrosmania.netlify.app/" target="_blank" rel="noopener" aria-label="Ver ao vivo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">Churros <strong>Mania</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            Cardápio digital com pedido direto via WhatsApp
+          </div>
+          <p class="project-desc">
+            Landing page de delivery com cardápio interativo, carrinho lateral e seleção
+            de confeitos por item. O pedido chega formatado direto no WhatsApp do negócio.
+          </p>
+          <div class="project-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            <span>WhatsApp API</span><span>Netlify</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fas fa-car"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">Uni<strong>Caronas</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            Plataforma fullstack com auth e chat em tempo real
+          </div>
+          <p class="project-desc">
+            Sistema de caronas universitárias com autenticação via JWT, chat entre usuários
+            e algoritmo de sugestão de preço por trajeto. Fullstack com Node.js e PostgreSQL.
+          </p>
+          <div class="project-tech">
+            <span>Node.js</span><span>Express</span>
+            <span>PostgreSQL</span><span>JWT</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fab fa-github"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">GitHub <strong>Profile Search</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            Interface React consumindo API com tratamento de erros
+          </div>
+          <p class="project-desc">
+            Aplicação React que consome a API pública do GitHub em tempo real.
+            Interface responsiva com feedback visual de carregamento e erros.
+          </p>
+          <div class="project-tech">
+            <span>React</span><span>Tailwind CSS</span>
+            <span>Vite</span><span>GitHub API</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fas fa-boxes-stacked"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">Sistema de <strong>Estoque</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            CRUD completo com persistência e relatórios gerenciais
+          </div>
+          <p class="project-desc">
+            Controle de estoque com entradas, saídas e relatórios. Persistência em CSV
+            com escrita atômica para garantir integridade dos dados. C# e .NET.
+          </p>
+          <div class="project-tech">
+            <span>C#</span><span>.NET</span><span>Console App</span><span>CSV</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icons"><i class="fas fa-globe"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-name">Wikipedia <strong>Redesign</strong></h3>
+          <div class="project-result">
+            <i class="fas fa-chart-line"></i>
+            Exercício de redesign com foco em hierarquia visual
+          </div>
+          <p class="project-desc">
+            Recriação modernizada do layout da Wikipedia. Exercício de design de interfaces
+            com ênfase em tipografia, espaçamento e legibilidade. Bootcamp Santander/DIO.
+          </p>
+          <div class="project-tech">
+            <span>HTML5</span><span>CSS3</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AVALIAÇÕES ===================== -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section-label reveal">
+        <span>// 04</span> avaliações
+      </div>
+      <h2 class="section-title reveal">
+        O que os clientes <strong>dizem</strong>
+      </h2>
+      <p class="section-sub reveal">
+        Satisfação real de quem já trabalhou comigo — sem filtro.
+      </p>
+
+      <div class="reviews-grid">
+
+        <!-- Card 1 — Churros Mania (WhatsApp screenshot) -->
+        <div class="review-card review-featured reveal">
+          <div class="review-top">
+            <div class="review-avatar">CM</div>
+            <div class="review-meta">
+              <strong class="review-name">Cliente — Churros Mania</strong>
+              <span class="review-project">Cardápio digital com WhatsApp</span>
+            </div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-bubble">
+            <p>"Quero te agradecer mais uma vez por sua disponibilidade, dedicação e todo empenho/entrega nesse projeto.. Falta até palavras pra expressar nossa imensa gratidão 😍</p>
+            <p>Ficou muito top! Saiba que só tem elogios ao site ..</p>
+            <p>Você arrasou demais! De vdd"</p>
+          </div>
+          <div class="review-footer">
+            <span class="review-tag">via WhatsApp</span>
+            <a href="https://churrosmania.netlify.app/" target="_blank" rel="noopener" class="review-link">ver projeto →</a>
+          </div>
+        </div>
+
+        <!-- Placeholder card 2 — incentivo para novos depoimentos -->
+        <div class="review-card review-cta reveal">
+          <div class="review-cta-inner">
+            <div class="review-cta-icon">✦</div>
+            <p class="review-cta-text">Seu depoimento pode ser o próximo.<br>Trabalhe comigo e compartilhe sua experiência.</p>
+            <a href="https://wa.me/5541997392226?text=Oi!%20Quero%20fazer%20um%20projeto%20com%20você!" target="_blank" rel="noopener" class="btn btn-outline-cyan btn-sm">
+              Iniciar projeto →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIÊNCIA ===================== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-label reveal">
+        <span>// 05</span> experiência &amp; formação
+      </div>
+      <h2 class="section-title reveal">Minha <strong>trajetória</strong></h2>
+
+      <div class="timeline-wrap">
+        <div class="timeline-col reveal">
+          <h3 class="timeline-heading"><i class="fas fa-briefcase"></i> Experiência</h3>
+          <div class="timeline">
+            <div class="timeline-item active">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Fev 2026 → atual</span>
+                <h4>Estagiária em Desenvolvimento Web</h4>
+                <p class="tl-company">Prefeitura de Campina Grande do Sul</p>
+                <p class="tl-desc">Desenvolvimento de melhorias de layout e UX em sistemas municipais. Next.js, HTML, CSS e JS com foco em acessibilidade.</p>
+                <div class="tl-tags"><span>Next.js</span><span>HTML/CSS</span><span>JavaScript</span></div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Mai 2025 → Dez 2025</span>
+                <h4>Estagiária em TI</h4>
+                <p class="tl-company">Cidade Júnior</p>
+                <p class="tl-desc">Módulo financeiro de sistema interno. Consultas PostgreSQL, implementação de funcionalidades e documentação técnica.</p>
+                <div class="tl-tags"><span>PostgreSQL</span><span>Módulo Financeiro</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-col reveal">
+          <h3 class="timeline-heading"><i class="fas fa-graduation-cap"></i> Formação</h3>
+          <div class="timeline">
+            <div class="timeline-item active">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2024 → 2028 · cursando</span>
+                <h4>Bacharelado em Engenharia de Software</h4>
+                <p class="tl-company">Unibrasil · 3º semestre</p>
+                <span class="tl-badge"><i class="fas fa-medal"></i> Bolsista Integral</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2025</span>
+                <h4>Capacitação em Administração com TI</h4>
+                <p class="tl-company">Universidade Positivo</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">2025</span>
+                <h4>Bootcamp Front-End</h4>
+                <p class="tl-company">DIO + Santander</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievements">
+        <h3 class="timeline-heading" style="margin-top: 2.5rem;"><i class="fas fa-star"></i> Destaques</h3>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="hl-date">2025</span>
+            <strong>Publicação Científica — EVINCI</strong>
+            <span class="hl-sub">Unibrasil · "Oficinas de Tecnologia para Alunos do Ensino Fundamental"</span>
+          </div>
+          <div class="highlight-card">
+            <span class="hl-date">2019 · 2022 · 2023</span>
+            <strong>3× Menção Honrosa OBMEP</strong>
+            <span class="hl-sub">Olimpíada Brasileira de Matemática</span>
+          </div>
+          <div class="highlight-card highlight-active">
+            <span class="hl-date">2025 → atual</span>
+            <strong>Representante de Turma</strong>
+            <span class="hl-sub">Eng. Software — Unibrasil</span>
+          </div>
+          <div class="highlight-card">
+            <span class="hl-date">Bootcamp 2025</span>
+            <strong>Front-End Santander</strong>
+            <span class="hl-sub">DIO + Santander</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTATO ===================== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label reveal"><span>// 07</span> vamos trabalhar juntos</div>
+
+      <div class="contact-cta-box reveal">
+        <div class="cta-glow"></div>
+        <h3>Tem um projeto em mente?<br><strong>Vamos conversar.</strong></h3>
+        <p>
+          Me conta o que você precisa e eu te mando um orçamento sem compromisso.<br>
+          Respondo em até 24 horas.
+        </p>
+        <div class="contact-cta-btns">
+          <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i> Solicitar orçamento
+          </a>
+          <a href="pages/precos.html" class="btn btn-outline-cyan">
+            <i class="fas fa-tags"></i> Tabela de Preços
+          </a>
+          <a href="pages/bio.html" class="btn btn-ghost">
+            <i class="fas fa-address-card"></i> Bio & Links
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-links reveal">
+          <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-info"><strong>WhatsApp</strong><span>Resposta rápida — projetos e orçamentos</span></div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="mailto:ariane.archanjo1@gmail.com" class="contact-card">
+            <div class="contact-icon gmail"><i class="fas fa-envelope"></i></div>
+            <div class="contact-info"><strong>E-mail</strong><span>ariane.archanjo1@gmail.com</span></div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ariane-archanjo/" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon linkedin"><i class="fab fa-linkedin-in"></i></div>
+            <div class="contact-info"><strong>LinkedIn</strong><span>ariane-archanjo</span></div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+          <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon github"><i class="fab fa-github"></i></div>
+            <div class="contact-info"><strong>GitHub</strong><span>arianearchanjo</span></div>
+            <i class="fas fa-arrow-right contact-arrow"></i>
+          </a>
+        </div>
+
+        <div class="contact-message reveal">
+          <div class="msg-card">
+            <div class="msg-header">
+              <i class="fas fa-terminal"></i>
+              <span>como funciona.txt</span>
+            </div>
+            <div class="msg-body">
+              <p>Processo simples e transparente:</p>
+              <ul>
+                <li><i class="fas fa-check"></i> Você descreve o que precisa</li>
+                <li><i class="fas fa-check"></i> Recebe um orçamento detalhado</li>
+                <li><i class="fas fa-check"></i> Definimos escopo e prazo juntos</li>
+                <li><i class="fas fa-check"></i> Acompanha o progresso em tempo real</li>
+                <li><i class="fas fa-check"></i> Recebe o projeto pronto para usar</li>
+              </ul>
+              <a href="https://wa.me/5541997392226?text=Oi!%20Quero%20iniciar%20um%20projeto" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top: 1.5rem; width: 100%; justify-content: center;">
+                <i class="fab fa-whatsapp"></i> Iniciar projeto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#hero" class="nav-logo">
+          ariarch<span class="ext">.dev</span>
+        </a>
+        <p>desenvolvido por Ariane Archanjo &mdash; <span id="year"></span></p>
+        <div class="footer-socials">
+          <a href="https://github.com/arianearchanjo"       target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/ariane-archanjo/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/5541997392226"             target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:ariane.archanjo1@gmail.com"               aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="assets/js/portfolio.js"></script>
+</body>
+</html>
