@@ -54,10 +54,8 @@ pages/contato.html
 └── → precos.html
 ```
 
-## 🚀 Como publicar
-
-Basta fazer upload da pasta `ariarch-final/` inteira no **Netlify** ou **GitHub Pages**.
-O `index.html` na raiz será servido automaticamente como página inicial.
+## 🚀 Acesse
+https://arianearchanjo.github.io/ariane-dev-services/
 
 ---
 *Design & Código por ariarch.dev · 2026*
