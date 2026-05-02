@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-/* ── BRAND KIT v2 ── */
+/* ── BRAND KIT ── */
 :root {
   --cyan:        #00d4e8;
   --cyan-dim:    rgba(0,212,232,0.08);
@@ -22,9 +22,6 @@
   --green:       #22d970;
   --green-bg:    rgba(34,217,112,0.08);
   --green-bd:    rgba(34,217,112,0.2);
-  --promo:       var(--cyan);
-  --promo-bg:    var(--cyan-bg);
-  --promo-bd:    var(--cyan-bd);
   --bg:          #0e1117;
   --bg2:         #131720;
   --bg3:         #171d29;
@@ -38,9 +35,7 @@
   --radius:      12px;
   --ease:        cubic-bezier(0.22,1,0.36,1);
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   background: var(--bg);
   color: var(--text);
@@ -48,7 +43,6 @@ body {
   line-height: 1.6;
   min-height: 100vh;
 }
-
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -94,18 +88,14 @@ body::before {
   border-radius: 8px !important;
 }
 .site-nav__cta:hover { background: #1ae0f5 !important; transform: translateY(-1px); }
-
-/* hamburger — mobile */
 .site-nav__hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 6px; margin-left: 8px;
 }
 .site-nav__hamburger span {
   display: block; width: 20px; height: 1.5px;
-  background: var(--text-dim); border-radius: 2px;
-  transition: all 0.2s;
+  background: var(--text-dim); border-radius: 2px; transition: all 0.2s;
 }
-
 @media (max-width: 600px) {
   .site-nav__links { display: none; }
   .site-nav__hamburger { display: flex; }
@@ -113,8 +103,7 @@ body::before {
     display: flex; flex-direction: column;
     position: fixed; top: 54px; left: 0; right: 0;
     background: rgba(14,17,23,0.97); backdrop-filter: blur(16px);
-    padding: 16px; border-bottom: 0.5px solid var(--border);
-    gap: 4px;
+    padding: 16px; border-bottom: 0.5px solid var(--border); gap: 4px;
   }
   .site-nav__links.open a { padding: 10px 14px; font-size: 9px; }
 }
@@ -125,52 +114,9 @@ body::before {
   padding: calc(54px + 48px) 24px 96px;
   position: relative; z-index: 1;
 }
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ── HERO ── */
-.hero {
-  text-align: center; margin-bottom: 52px;
-  animation: up 0.5s var(--ease) both;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-mono); font-size: 9px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--cyan); background: var(--cyan-bg);
-  border: 0.5px solid var(--cyan-bd);
-  padding: 5px 14px; border-radius: 999px; margin-bottom: 20px;
-}
-.hero-tag .dot {
-  width: 5px; height: 5px; background: var(--green);
-  border-radius: 50%; display: inline-block;
-  box-shadow: 0 0 6px var(--green);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-.hero h1 {
-  font-family: var(--font-head);
-  font-size: clamp(28px, 6vw, 46px); font-weight: 800;
-  letter-spacing: -0.04em; line-height: 1.05;
-  color: var(--text); margin-bottom: 14px;
-}
-.hero h1 .accent { color: var(--cyan); }
-.hero p {
-  font-size: 14px; font-weight: 500; color: var(--text-dim);
-  line-height: 1.7; max-width: 480px; margin: 0 auto;
-}
-
-/* ── SECTION LABEL ── */
-.section-label {
-  font-family: var(--font-mono); font-size: 8px;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 16px;
-  display: flex; align-items: center; gap: 10px;
-}
-.section-label::after {
-  content: ''; flex: 1; height: 0.5px; background: var(--border);
-}
+/* ── PROMO BANNER ── */
 .promo-banner {
   background: var(--bg2);
   border: 0.5px solid var(--cyan-bd);
@@ -210,9 +156,7 @@ body::before {
   font-family: var(--font-head); font-size: 16px; font-weight: 800;
   letter-spacing: -0.03em; color: var(--text); margin-bottom: 5px;
 }
-.promo-desc {
-  font-size: 12px; font-weight: 500; color: var(--text-dim); line-height: 1.65;
-}
+.promo-desc { font-size: 12px; font-weight: 500; color: var(--text-dim); line-height: 1.65; }
 .promo-slots {
   flex-shrink: 0; text-align: center;
   background: var(--cyan-bg); border: 0.5px solid var(--cyan-bd);
@@ -232,6 +176,43 @@ body::before {
   .promo-slots { width: 100%; }
 }
 
+/* ── HERO ── */
+.hero {
+  text-align: center; margin-bottom: 52px;
+  animation: up 0.5s var(--ease) both;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cyan); background: var(--cyan-bg);
+  border: 0.5px solid var(--cyan-bd);
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 20px;
+}
+.hero-tag .dot {
+  width: 5px; height: 5px; background: var(--green);
+  border-radius: 50%; display: inline-block;
+  box-shadow: 0 0 6px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+.hero h1 {
+  font-size: clamp(28px, 6vw, 46px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.05;
+  color: var(--text); margin-bottom: 14px;
+}
+.hero h1 .accent { color: var(--cyan); }
+.hero p { font-size: 14px; font-weight: 500; color: var(--text-dim); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: var(--font-mono); font-size: 8px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
 /* ── INFRA ── */
 .infra-box {
   background: var(--bg2); border: 0.5px solid var(--border);
@@ -245,13 +226,10 @@ body::before {
 }
 .infra-title::before {
   content: ''; width: 5px; height: 5px; background: var(--cyan);
-  border-radius: 50%; display: inline-block;
-  box-shadow: 0 0 8px var(--cyan-glow);
+  border-radius: 50%; box-shadow: 0 0 8px var(--cyan-glow);
 }
 .infra-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;
 }
 .infra-row {
   display: flex; justify-content: space-between; align-items: center;
@@ -264,8 +242,7 @@ body::before {
 
 /* ── PLANS ── */
 .plans-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   gap: 14px; margin-bottom: 48px;
   animation: up 0.5s var(--ease) 0.12s both;
 }
@@ -276,23 +253,14 @@ body::before {
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   position: relative; overflow: hidden;
 }
-.plan-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--border-hi);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-}
-.plan-card.featured {
-  border-color: var(--cyan-bd);
-  background: linear-gradient(160deg, rgba(0,212,232,0.03) 0%, var(--bg2) 60%);
-}
+.plan-card:hover { transform: translateY(-3px); border-color: var(--border-hi); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+.plan-card.featured { border-color: var(--cyan-bd); background: linear-gradient(160deg, rgba(0,212,232,0.03) 0%, var(--bg2) 60%); }
 .plan-card.featured:hover { box-shadow: 0 16px 48px rgba(0,212,232,0.1); }
 .plan-card.featured::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-  opacity: 0.7;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: 0.7;
 }
-
 .plan-ribbon {
   position: absolute; top: 16px; right: -28px;
   background: var(--green); color: #08111a;
@@ -300,34 +268,26 @@ body::before {
   letter-spacing: 0.15em; text-transform: uppercase;
   padding: 4px 36px; transform: rotate(35deg);
 }
-
 .plan-badge {
   display: inline-flex; align-items: center; gap: 5px;
   font-family: var(--font-mono); font-size: 8px;
   letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 999px;
-  margin-bottom: 16px; width: fit-content;
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 16px; width: fit-content;
 }
 .badge-green  { background: var(--green-bg);  color: var(--green);  border: 0.5px solid var(--green-bd); }
 .badge-cyan   { background: var(--cyan-bg);   color: var(--cyan);   border: 0.5px solid var(--cyan-bd); }
 .badge-gray   { background: rgba(255,255,255,0.03); color: var(--text-mute); border: 0.5px solid var(--border); }
 .badge-violet { background: var(--violet-bg); color: var(--violet); border: 0.5px solid var(--violet-bd); }
-
 .plan-name {
   font-family: var(--font-head); font-size: 17px; font-weight: 800;
   letter-spacing: -0.03em; color: var(--text); margin-bottom: 6px; line-height: 1.1;
 }
-.plan-tagline {
-  font-size: 11px; font-weight: 500; color: var(--text-dim);
-  line-height: 1.6; margin-bottom: 20px;
-}
+.plan-tagline { font-size: 11px; font-weight: 500; color: var(--text-dim); line-height: 1.6; margin-bottom: 20px; }
 .plan-divider { height: 0.5px; background: var(--border); margin-bottom: 16px; }
-
 .price-block { margin-bottom: 14px; }
 .price-label {
-  font-family: var(--font-mono); font-size: 8px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--text-mute); margin-bottom: 8px; display: block;
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-mute); margin-bottom: 8px; display: block;
 }
 .price-row {
   display: flex; justify-content: space-between; align-items: center;
@@ -342,42 +302,42 @@ body::before {
 .price-val.free    { color: var(--green); }
 .price-val.neutral { color: var(--text); }
 .price-val.muted   { color: var(--text-dim); font-weight: 400; }
-
 .plan-total {
   display: flex; justify-content: space-between; align-items: center;
   padding: 12px 14px; background: var(--bg3);
-  border-radius: 8px; margin-bottom: 8px;
-  border: 0.5px solid var(--border);
+  border-radius: 8px; margin-bottom: 8px; border: 0.5px solid var(--border);
 }
 .plan-total-promo {
   display: flex; justify-content: space-between; align-items: center;
   padding: 10px 14px; margin-bottom: 18px;
-  background: var(--green-bg); border: 0.5px solid var(--green-bd);
-  border-radius: 8px;
+  background: var(--green-bg); border: 0.5px solid var(--green-bd); border-radius: 8px;
 }
-.total-label      { font-size: 10px; font-weight: 600; color: var(--text-dim); }
-.total-val        { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--cyan); letter-spacing: -0.03em; }
-.total-val-promo  { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--green); letter-spacing: -0.02em; }
-.total-saving     { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
-
+.total-label     { font-size: 10px; font-weight: 600; color: var(--text-dim); }
+.total-val       { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--cyan); letter-spacing: -0.03em; }
+.total-val-promo { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--green); letter-spacing: -0.02em; }
+.total-saving    { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
 .why-box {
   background: var(--bg3); border-radius: 8px; padding: 14px;
   margin-top: auto; border: 0.5px solid var(--border);
 }
 .why-title {
-  font-family: var(--font-mono); font-size: 8px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 10px; display: block;
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; display: block;
 }
-.why-item {
-  display: flex; gap: 8px; margin-bottom: 7px;
-  font-size: 11px; line-height: 1.55; color: var(--text-dim); font-weight: 500;
-}
+.why-item { display: flex; gap: 8px; margin-bottom: 7px; font-size: 11px; line-height: 1.55; color: var(--text-dim); font-weight: 500; }
 .why-item:last-child { margin-bottom: 0; }
-.why-dot {
-  flex-shrink: 0; width: 4px; height: 4px;
-  background: var(--cyan); border-radius: 50%; margin-top: 6px; opacity: 0.5;
+.why-dot { flex-shrink: 0; width: 4px; height: 4px; background: var(--cyan); border-radius: 50%; margin-top: 6px; opacity: 0.5; }
+
+/* ── HOSTING NOTE ── */
+.hosting-note {
+  background: var(--bg2); border: 0.5px solid var(--cyan-bd);
+  border-radius: var(--radius); padding: 18px 22px; margin-bottom: 48px;
+  display: flex; gap: 14px; align-items: flex-start;
+  animation: up 0.5s var(--ease) 0.16s both;
 }
+.hosting-note .urgency-line { width: 2px; flex-shrink: 0; background: var(--cyan); border-radius: 2px; align-self: stretch; opacity: 0.7; }
+.hosting-note .urgency-text { font-size: 11px; font-weight: 500; color: var(--text-dim); line-height: 1.7; }
+.hosting-note .urgency-text strong { color: var(--cyan); font-weight: 700; }
 
 /* ── URGENCY ── */
 .urgency-box {
@@ -386,20 +346,13 @@ body::before {
   display: flex; gap: 14px; align-items: flex-start;
   animation: up 0.5s var(--ease) 0.20s both;
 }
-.urgency-line {
-  width: 2px; flex-shrink: 0; background: var(--cyan);
-  border-radius: 2px; align-self: stretch; opacity: 0.7;
-}
+.urgency-line { width: 2px; flex-shrink: 0; background: var(--cyan); border-radius: 2px; align-self: stretch; opacity: 0.7; }
 .urgency-text { font-size: 11px; font-weight: 500; color: var(--text-dim); line-height: 1.7; }
 .urgency-text strong { color: var(--cyan); font-weight: 700; }
 
 /* ── EXTRAS ── */
 .extras-section { margin-bottom: 48px; animation: up 0.5s var(--ease) 0.18s both; }
-.extras-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
-}
+.extras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
 .extra-card {
   background: var(--bg2); border: 0.5px solid var(--border);
   border-radius: var(--radius); padding: 16px 18px;
@@ -408,10 +361,7 @@ body::before {
 .extra-card:hover { border-color: var(--violet-bd); background: var(--violet-bg); }
 .extra-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
 .extra-name { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--text); line-height: 1.3; }
-.extra-price {
-  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
-  color: var(--violet); white-space: nowrap; margin-left: 10px; flex-shrink: 0;
-}
+.extra-price { font-family: var(--font-mono); font-size: 10px; font-weight: 500; color: var(--violet); white-space: nowrap; margin-left: 10px; flex-shrink: 0; }
 .extra-why { font-size: 11px; font-weight: 500; color: var(--text-mute); line-height: 1.5; }
 .extra-tag {
   font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em;
@@ -431,26 +381,14 @@ body::before {
   border-radius: var(--radius); padding: 22px 26px; margin-bottom: 48px;
   animation: up 0.5s var(--ease) 0.22s both;
 }
-.notes-title {
-  font-family: var(--font-head); font-size: 12px; font-weight: 700;
-  color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
-}
-.note-item {
-  display: flex; gap: 12px; margin-bottom: 10px;
-  font-size: 11px; font-weight: 500; color: var(--text-dim); line-height: 1.7;
-}
+.notes-title { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.note-item { display: flex; gap: 12px; margin-bottom: 10px; font-size: 11px; font-weight: 500; color: var(--text-dim); line-height: 1.7; }
 .note-item:last-child { margin-bottom: 0; }
-.note-num {
-  flex-shrink: 0; font-family: var(--font-mono); font-size: 9px;
-  color: var(--cyan); margin-top: 2px; font-weight: 500;
-}
+.note-num { flex-shrink: 0; font-family: var(--font-mono); font-size: 9px; color: var(--cyan); margin-top: 2px; font-weight: 500; }
 
 /* ── CTA ── */
 .cta-section { text-align: center; animation: up 0.5s var(--ease) 0.28s both; }
-.cta-title {
-  font-family: var(--font-head); font-size: 22px; font-weight: 800;
-  letter-spacing: -0.03em; color: var(--text); margin-bottom: 8px;
-}
+.cta-title { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 8px; }
 .cta-sub { font-size: 13px; font-weight: 500; color: var(--text-dim); margin-bottom: 26px; }
 .cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 @media (min-width: 480px) { .cta-buttons { flex-direction: row; justify-content: center; } }
@@ -463,10 +401,7 @@ body::before {
 }
 .cta-btn-primary { background: var(--cyan); color: #08111a; }
 .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--cyan-glow); }
-.cta-btn-ghost {
-  background: var(--bg2); border: 0.5px solid var(--border-hi);
-  color: var(--text-dim);
-}
+.cta-btn-ghost { background: var(--bg2); border: 0.5px solid var(--border-hi); color: var(--text-dim); }
 .cta-btn-ghost:hover { transform: translateY(-2px); color: var(--text); }
 
 /* ── FOOTER ── */
@@ -479,14 +414,11 @@ body::before {
 .footer-logo { font-family: var(--font-head); font-size: 13px; font-weight: 800; letter-spacing: -0.03em; color: var(--text-mute); }
 .footer-logo .ext { color: var(--cyan); }
 .footer-note { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mute); opacity: 0.5; }
-
-@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 380px) { .plans-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="site-nav" role="navigation" aria-label="Navegação principal">
   <div class="site-nav__inner">
     <a href="../index.html" class="site-nav__logo">ariarch<span class="ext">.dev</span></a>
@@ -504,7 +436,7 @@ body::before {
 
 <div class="page">
 
-  <!-- PROMO BANNER -->
+  <!-- PROMO BANNER — vagas por tempo limitado -->
   <div class="promo-banner">
     <div class="promo-icon">
       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -513,15 +445,16 @@ body::before {
       </svg>
     </div>
     <div class="promo-body">
-      <span class="promo-tag">promoção · primeiros clientes</span>
-      <div class="promo-title">50% de desconto nos primeiros projetos</div>
+      <span class="promo-tag">promoção · tempo limitado</span>
+      <div class="promo-title">40% de desconto nos próximos projetos</div>
       <div class="promo-desc">
-        Estou construindo portfólio com projetos reais. Você recebe um site de qualidade profissional
-        pela metade do preço — e peço apenas um depoimento ao finalizar.
+        Estou abrindo agenda para novos clientes com condições especiais por tempo limitado.
+        Você recebe design e front-end de nível profissional com preço de lançamento —
+        peço apenas um depoimento honesto ao final.
       </div>
     </div>
     <div class="promo-slots">
-      <span class="promo-slots-num">3</span>
+      <span class="promo-slots-num">4</span>
       <span class="promo-slots-label">vagas restantes</span>
     </div>
   </div>
@@ -532,32 +465,36 @@ body::before {
       <span class="dot"></span> sem surpresas
     </div>
     <h1>Preços <span class="accent">transparentes.</span><br>Valor real.</h1>
-    <p>O que cada projeto custa e por quê. Preço cheio e preço promocional lado a lado — você escolhe.</p>
+    <p>Preço cheio e preço promocional lado a lado. Você vê exatamente o que está contratando.</p>
   </div>
 
-  <!-- INFRA -->
-  <span class="section-label">infraestrutura — opções de hospedagem</span>
-  <div class="infra-box">
-    <div class="infra-title">Opções de hospedagem</div>
-    <div class="infra-grid">
-      <div class="infra-row">
-        <span class="infra-key">Netlify (subdomínio .netlify.app)</span>
-        <span class="infra-val free">Gratuito</span>
-      </div>
-      <div class="infra-row">
-        <span class="infra-key">Netlify + domínio próprio (.com.br)</span>
-        <span class="infra-val">R$ 50–70/ano</span>
-      </div>
-      <div class="infra-row">
-        <span class="infra-key">Netlify Pro (formulários extras)</span>
-        <span class="infra-val">~R$ 90/mês</span>
-      </div>
-      <div class="infra-row">
-        <span class="infra-key">Railway / Supabase (backend)</span>
-        <span class="infra-val">R$ 0–150/mês</span>
+  <!-- HOSTING INFO -->
+  <span class="section-label">infraestrutura — o que está incluso e o que é separado</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px;animation:up 0.5s var(--ease) 0.08s both" class="infra-split">
+
+    <!-- Incluso -->
+    <div class="hosting-note" style="margin-bottom:0">
+      <div class="urgency-line"></div>
+      <div class="urgency-text">
+        <strong style="color:var(--green)">✓ Hospedagem inclusa no preço.</strong><br>
+        Configuro tudo na Hostinger pra você — upload dos arquivos, SSL ativado, subdomínio funcionando.
+        Você não precisa mexer em nada técnico. O site já é entregue no ar.
       </div>
     </div>
+
+    <!-- Separado -->
+    <div class="hosting-note" style="margin-bottom:0;border-color:rgba(168,85,247,0.25);background:rgba(168,85,247,0.04)">
+      <div class="urgency-line" style="background:var(--violet)"></div>
+      <div class="urgency-text">
+        <strong style="color:var(--violet)">+ Domínio é pago à parte pelo cliente.</strong><br>
+        Se quiser um endereço próprio (ex: <em>seusite.com.br</em>), o domínio é registrado no seu nome no Registro.br e você paga direto — <strong>R$ 40/ano</strong> para .com.br. Eu faço toda a configuração sem custo extra.
+      </div>
+    </div>
+
   </div>
+  <style>
+    @media (max-width:560px) { .infra-split { grid-template-columns: 1fr !important; } }
+  </style>
 
   <!-- PLANS -->
   <span class="section-label">planos de desenvolvimento</span>
@@ -568,29 +505,34 @@ body::before {
       <div class="plan-ribbon">promo</div>
       <span class="plan-badge badge-green">landing page</span>
       <div class="plan-name">Landing Page</div>
-      <div class="plan-tagline">Página única focada em conversão. Ideal para campanhas, produtos ou serviços específicos.</div>
+      <div class="plan-tagline">Página única focada em conversão. Ideal para campanhas, lançamentos e serviços.</div>
       <div class="plan-divider"></div>
       <div class="price-block">
-        <span class="price-label">desenvolvimento</span>
-        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">5 a 10 dias</span></div>
-        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 600–1.200</span></div>
-        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 300–600</span></div>
-        <div class="price-row"><span class="price-key">Hospedagem (Netlify)</span><span class="price-val free">Gratuita</span></div>
+        <span class="price-label">desenvolvimento + hospedagem</span>
+        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">7 a 12 dias</span></div>
+        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 600–1.000</span></div>
+        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 400–650</span></div>
+        <div class="price-row" style="background:rgba(168,85,247,0.05);border-radius:6px;padding:7px 8px;margin-top:4px">
+          <span class="price-key" style="color:var(--violet)">+ Domínio próprio (opcional)</span>
+          <span class="price-val" style="color:var(--violet)">R$ 40/ano · pago por você</span>
+        </div>
       </div>
       <div class="plan-total">
         <span class="total-label">Total cheio</span>
-        <span class="total-val" style="font-size:14px;">R$ 600–1.200</span>
+        <span class="total-val" style="font-size:14px">R$ 600–1.000</span>
       </div>
       <div class="plan-total-promo">
-        <span class="total-saving">primeiros clientes</span>
-        <span class="total-val-promo">R$ 300–600</span>
+        <span class="total-saving">tempo limitado · 35% off</span>
+        <span class="total-val-promo">R$ 400–650</span>
       </div>
       <div class="why-box">
         <span class="why-title">o que está incluso</span>
-        <div class="why-item"><div class="why-dot"></div>Até 6 seções com design exclusivo</div>
+        <div class="why-item"><div class="why-dot"></div>Até 6 seções com design exclusivo (sem template)</div>
         <div class="why-item"><div class="why-dot"></div>100% responsivo — mobile, tablet e desktop</div>
-        <div class="why-item"><div class="why-dot"></div>Integração WhatsApp e formulário de contato</div>
+        <div class="why-item"><div class="why-dot"></div>Botão WhatsApp e formulário de contato</div>
         <div class="why-item"><div class="why-dot"></div>1 rodada de ajustes incluída</div>
+        <div class="why-item"><div class="why-dot"></div>Hospedagem na Hostinger configurada + SSL</div>
+        <div class="why-item" style="color:var(--violet);opacity:.8"><div class="why-dot" style="background:var(--violet)"></div>Configuração de domínio inclusa se você contratar o .com.br</div>
       </div>
     </div>
 
@@ -599,122 +541,132 @@ body::before {
       <div class="plan-ribbon">promo</div>
       <span class="plan-badge badge-green">pequenos negócios</span>
       <div class="plan-name">Cardápio / Catálogo</div>
-      <div class="plan-tagline">Cardápio digital ou catálogo de produtos com pedido direto via WhatsApp.</div>
+      <div class="plan-tagline">Cardápio digital ou catálogo com pedido direto via WhatsApp. Sem mensalidade de app.</div>
       <div class="plan-divider"></div>
       <div class="price-block">
-        <span class="price-label">desenvolvimento</span>
-        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">7 a 14 dias</span></div>
-        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 800–1.500</span></div>
-        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 400–750</span></div>
-        <div class="price-row"><span class="price-key">Hospedagem (Netlify)</span><span class="price-val free">Gratuita</span></div>
+        <span class="price-label">desenvolvimento + hospedagem</span>
+        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">10 a 18 dias</span></div>
+        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 900–1.400</span></div>
+        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 600–900</span></div>
+        <div class="price-row" style="background:rgba(168,85,247,0.05);border-radius:6px;padding:7px 8px;margin-top:4px">
+          <span class="price-key" style="color:var(--violet)">+ Domínio próprio (opcional)</span>
+          <span class="price-val" style="color:var(--violet)">R$ 40/ano · pago por você</span>
+        </div>
       </div>
       <div class="plan-total">
         <span class="total-label">Total cheio</span>
-        <span class="total-val" style="font-size:14px;">R$ 800–1.500</span>
+        <span class="total-val" style="font-size:14px">R$ 900–1.400</span>
       </div>
       <div class="plan-total-promo">
-        <span class="total-saving">primeiros clientes</span>
-        <span class="total-val-promo">R$ 400–750</span>
+        <span class="total-saving">tempo limitado · 35% off</span>
+        <span class="total-val-promo">R$ 600–900</span>
       </div>
       <div class="why-box">
         <span class="why-title">o que está incluso</span>
-        <div class="why-item"><div class="why-dot"></div>Galeria com filtros por categoria</div>
-        <div class="why-item"><div class="why-dot"></div>Pedido formatado e enviado via WhatsApp</div>
-        <div class="why-item"><div class="why-dot"></div>Carrinho ou seleção de itens interativa</div>
+        <div class="why-item"><div class="why-dot"></div>Galeria com filtro por categoria</div>
+        <div class="why-item"><div class="why-dot"></div>Pedido formatado enviado direto ao WhatsApp</div>
+        <div class="why-item"><div class="why-dot"></div>Carrinho ou seleção interativa de itens</div>
         <div class="why-item"><div class="why-dot"></div>2 rodadas de ajustes incluídas</div>
+        <div class="why-item"><div class="why-dot"></div>Hospedagem na Hostinger configurada + SSL</div>
+        <div class="why-item" style="color:var(--violet);opacity:.8"><div class="why-dot" style="background:var(--violet)"></div>Configuração de domínio inclusa se você contratar o .com.br</div>
       </div>
     </div>
 
     <!-- Site Institucional — FEATURED -->
     <div class="plan-card featured">
       <div class="plan-ribbon">promo</div>
-      <span class="plan-badge badge-cyan">mais vendido</span>
+      <span class="plan-badge badge-cyan">mais pedido</span>
       <div class="plan-name">Site Institucional</div>
-      <div class="plan-tagline">Presença digital completa para empresa ou marca. Até 5 páginas com design exclusivo.</div>
+      <div class="plan-tagline">Presença digital completa para empresa ou marca. Até 5 páginas com identidade exclusiva.</div>
       <div class="plan-divider"></div>
       <div class="price-block">
-        <span class="price-label">desenvolvimento</span>
-        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">14 a 25 dias</span></div>
-        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 1.500–3.000</span></div>
-        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 750–1.500</span></div>
-        <div class="price-row"><span class="price-key">Domínio .com.br (opcional)</span><span class="price-val neutral">R$ 50–70/ano</span></div>
-        <div class="price-row"><span class="price-key">Hospedagem (Netlify)</span><span class="price-val free">Gratuita</span></div>
+        <span class="price-label">desenvolvimento + hospedagem</span>
+        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">18 a 30 dias</span></div>
+        <div class="price-row"><span class="price-key">Preço cheio</span><span class="price-val strike">R$ 1.500–2.500</span></div>
+        <div class="price-row"><span class="price-key">Preço promocional</span><span class="price-val promo">R$ 1.000–1.600</span></div>
+        <div class="price-row" style="background:rgba(168,85,247,0.05);border-radius:6px;padding:7px 8px;margin-top:4px">
+          <span class="price-key" style="color:var(--violet)">+ Domínio próprio (opcional)</span>
+          <span class="price-val" style="color:var(--violet)">R$ 40/ano · pago por você</span>
+        </div>
       </div>
       <div class="plan-total">
-        <span class="total-label">Total cheio (com domínio)</span>
-        <span class="total-val" style="font-size:14px;">R$ 1.550–3.070</span>
+        <span class="total-label">Total cheio</span>
+        <span class="total-val" style="font-size:14px">R$ 1.500–2.500</span>
       </div>
       <div class="plan-total-promo">
-        <span class="total-saving">primeiros clientes</span>
-        <span class="total-val-promo">R$ 800–1.570</span>
+        <span class="total-saving">tempo limitado · 35% off</span>
+        <span class="total-val-promo">R$ 1.000–1.600</span>
       </div>
       <div class="why-box">
         <span class="why-title">o que está incluso</span>
         <div class="why-item"><div class="why-dot"></div>Até 5 páginas com design personalizado</div>
-        <div class="why-item"><div class="why-dot"></div>SEO básico configurado</div>
+        <div class="why-item"><div class="why-dot"></div>SEO básico configurado (meta, sitemap)</div>
         <div class="why-item"><div class="why-dot"></div>3 rodadas de ajustes incluídas</div>
+        <div class="why-item"><div class="why-dot"></div>Hospedagem na Hostinger configurada + SSL</div>
+        <div class="why-item"><div class="why-dot"></div>Treinamento rápido para atualizações simples</div>
+        <div class="why-item" style="color:var(--violet);opacity:.8"><div class="why-dot" style="background:var(--violet)"></div>Configuração de domínio inclusa se você contratar o .com.br</div>
       </div>
     </div>
 
-    <!-- Front-end Sistema -->
+    <!-- Front-end UI / Componentes -->
     <div class="plan-card">
-      <span class="plan-badge badge-violet">interface / sistema</span>
-      <div class="plan-name">Front-end para Sistema</div>
-      <div class="plan-tagline">Interfaces React ou Next.js para sistemas, dashboards e aplicações web.</div>
+      <span class="plan-badge badge-violet">interface / produto</span>
+      <div class="plan-name">UI para Produto Digital</div>
+      <div class="plan-tagline">Design e desenvolvimento de interfaces para apps, dashboards e sistemas web. React ou HTML puro.</div>
       <div class="plan-divider"></div>
       <div class="price-block">
         <span class="price-label">desenvolvimento</span>
-        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">3 a 8 semanas</span></div>
-        <div class="price-row"><span class="price-key">Investimento</span><span class="price-val full">R$ 2.500–6.000</span></div>
-        <div class="price-row"><span class="price-key">Hospedagem / Backend</span><span class="price-val neutral">R$ 0–150/mês</span></div>
+        <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">3 a 6 semanas</span></div>
+        <div class="price-row"><span class="price-key">Investimento</span><span class="price-val full">R$ 2.000–4.000</span></div>
+        <div class="price-row"><span class="price-key">Infraestrutura</span><span class="price-val neutral">a combinar</span></div>
       </div>
       <div class="plan-total">
         <span class="total-label">Total estimado</span>
-        <span class="total-val">R$ 2.500–6.000</span>
+        <span class="total-val">R$ 2.000–4.000</span>
       </div>
       <div class="why-box">
         <span class="why-title">o que está incluso</span>
-        <div class="why-item"><div class="why-dot"></div>React / Next.js com componentes reutilizáveis</div>
-        <div class="why-item"><div class="why-dot"></div>Integração com APIs e autenticação JWT</div>
-        <div class="why-item"><div class="why-dot"></div>Dashboard, painel ou fluxo completo</div>
-        <div class="why-item"><div class="why-dot"></div>Código documentado e entregue via GitHub</div>
+        <div class="why-item"><div class="why-dot"></div>Design system e componentes reutilizáveis</div>
+        <div class="why-item"><div class="why-dot"></div>Responsivo e acessível</div>
+        <div class="why-item"><div class="why-dot"></div>Integração com APIs REST (front-end)</div>
+        <div class="why-item"><div class="why-dot"></div>Código comentado e entregue via GitHub</div>
       </div>
     </div>
 
-    <!-- Projeto Fullstack -->
+    <!-- Projeto customizado -->
     <div class="plan-card">
       <span class="plan-badge badge-gray">projeto maior · sob consulta</span>
-      <div class="plan-name">Projeto Fullstack</div>
-      <div class="plan-tagline">Front-end, back-end e banco de dados. Sistemas completos com Node.js e PostgreSQL.</div>
+      <div class="plan-name">Projeto Customizado</div>
+      <div class="plan-tagline">Necessidades específicas, integrações complexas ou múltiplas entregas. Orçamento após briefing.</div>
       <div class="plan-divider"></div>
       <div class="price-block">
         <span class="price-label">desenvolvimento</span>
         <div class="price-row"><span class="price-key">Prazo de entrega</span><span class="price-val muted">a combinar</span></div>
         <div class="price-row"><span class="price-key">Investimento</span><span class="price-val full">a combinar</span></div>
-        <div class="price-row"><span class="price-key">Infraestrutura</span><span class="price-val neutral">R$ 0–150/mês</span></div>
+        <div class="price-row"><span class="price-key">Infraestrutura</span><span class="price-val neutral">a combinar</span></div>
       </div>
       <div class="plan-total">
         <span class="total-label">Orçamento após briefing</span>
         <span class="total-val">Sob consulta</span>
       </div>
       <div class="why-box">
-        <span class="why-title">o que está incluso</span>
-        <div class="why-item"><div class="why-dot"></div>Arquitetura front-end e back-end completa</div>
-        <div class="why-item"><div class="why-dot"></div>Autenticação, relatórios e chat em tempo real</div>
-        <div class="why-item"><div class="why-dot"></div>Documentação técnica entregue</div>
-        <div class="why-item"><div class="why-dot"></div>Suporte pós-entrega incluso</div>
+        <span class="why-title">exemplos de escopo</span>
+        <div class="why-item"><div class="why-dot"></div>Landing pages com integração de formulários e CRM</div>
+        <div class="why-item"><div class="why-dot"></div>Múltiplas páginas com blog integrado</div>
+        <div class="why-item"><div class="why-dot"></div>Redesign completo com migração de conteúdo</div>
+        <div class="why-item"><div class="why-dot"></div>Projetos com prazo urgente (acréscimo de 30%)</div>
       </div>
     </div>
 
   </div>
 
-  <!-- URGENCY -->
+  <!-- URGENCY / PAGAMENTO -->
   <div class="urgency-box">
     <div class="urgency-line"></div>
     <div class="urgency-text">
-      <strong>Projetos com urgência (menos de 7 dias úteis):</strong> acréscimo de 30% sobre o valor contratado.
-      Projetos regulares seguem o prazo acordado sem custo adicional.
+      <strong>Urgência (prazo abaixo de 7 dias úteis):</strong> acréscimo de 30% sobre o valor contratado.
       Pagamento: <strong>50% na aprovação do briefing + 50% na entrega.</strong>
+      Revisões além das incluídas no plano: R$ 80–150 por rodada.
     </div>
   </div>
 
@@ -725,46 +677,46 @@ body::before {
       <div class="extra-card">
         <div class="extra-header">
           <div class="extra-name">Manutenção mensal</div>
-          <div class="extra-price">R$ 150–400/mês</div>
+          <div class="extra-price">R$ 120–300/mês</div>
         </div>
         <div class="extra-why">Atualizações de texto, imagens e pequenas melhorias sem precisar abrir código.</div>
       </div>
       <div class="extra-card">
         <div class="extra-header">
-          <div class="extra-name">Ajuste avulso pós-entrega</div>
-          <div class="extra-price">R$ 80–200</div>
+          <div class="extra-name">Revisão avulsa pós-entrega</div>
+          <div class="extra-price">R$ 60–150</div>
         </div>
         <div class="extra-why">Alteração pontual fora do escopo original. Orçamento rápido antes de iniciar.</div>
       </div>
       <div class="extra-card">
         <div class="extra-header">
           <div class="extra-name">Página extra</div>
-          <div class="extra-price">+ R$ 200–400</div>
+          <div class="extra-price">+ R$ 150–350</div>
         </div>
-        <div class="extra-why">Cada página adicional além do plano contratado tem esse custo.</div>
+        <div class="extra-why">Cada página adicional além do plano contratado — design exclusivo, não template.</div>
       </div>
       <div class="extra-card">
         <div class="extra-header">
           <div class="extra-name">Configuração de domínio (DNS)</div>
-          <div class="extra-price">R$ 50–100</div>
+          <div class="extra-price">R$ 40–80</div>
         </div>
-        <div class="extra-why">Apontar o seu domínio ao site. Feito uma vez e funciona pra sempre.</div>
+        <div class="extra-why">Registro, apontamento e configuração completa do seu domínio. Feito uma vez.</div>
       </div>
       <div class="extra-card">
         <div class="extra-header">
-          <div class="extra-name">SEO avançado</div>
-          <div class="extra-price">R$ 300–600</div>
+          <div class="extra-name">SEO técnico avançado</div>
+          <div class="extra-price">R$ 250–500</div>
         </div>
-        <div class="extra-why">Otimização técnica e de conteúdo para melhorar o posicionamento no Google.</div>
+        <div class="extra-why">Otimização técnica e de conteúdo para posicionamento no Google além do básico incluso.</div>
       </div>
       <div class="extra-card">
         <div class="extra-header">
-          <div class="extra-name">Integração de API</div>
-          <div class="extra-price">R$ 300–1.200</div>
+          <div class="extra-name">Integração de API externa</div>
+          <div class="extra-price">R$ 250–900</div>
         </div>
         <span class="extra-tag">o que é isso?</span>
         <div class="extra-what">
-          API é uma ponte entre o seu site e outros serviços — como WhatsApp automático, agendamento online, CRM ou inteligência artificial. O valor varia conforme a complexidade.
+          API é uma ponte entre o seu site e outros serviços — como agendamento online, envio de e-mail automático, WhatsApp Business ou integração com sistemas de gestão. O valor varia com a complexidade.
         </div>
       </div>
     </div>
@@ -780,12 +732,13 @@ body::before {
       </svg>
       Informações importantes
     </div>
-    <div class="note-item"><div class="note-num">01</div>Preços promocionais valem para os próximos 3 clientes — um depoimento ao finalizar é suficiente como retorno.</div>
-    <div class="note-item"><div class="note-num">02</div>Netlify gratuito cobre 99% dos pequenos negócios: 100GB de banda por mês, SSL automático e deploy contínuo sem custo.</div>
-    <div class="note-item"><div class="note-num">03</div>O domínio sempre fica registrado no seu nome no Registro.br — autonomia total, sem depender de mim no futuro.</div>
-    <div class="note-item"><div class="note-num">04</div>Pagamento: 50% na aprovação do briefing + 50% na entrega. Sem cobranças surpresa no meio do projeto.</div>
-    <div class="note-item"><div class="note-num">05</div>Nenhum template pronto. Cada projeto começa do zero com design pensado para a sua marca e seus clientes.</div>
-    <div class="note-item"><div class="note-num">06</div>Não quer domínio agora? Sem problema — pode adicionar depois sem precisar refazer o site.</div>
+    <div class="note-item"><div class="note-num">01</div>Preços promocionais são por tempo limitado e vagas esgotam conforme a agenda fecha — quando acabar, volta ao preço cheio.</div>
+    <div class="note-item"><div class="note-num">02</div>Nenhum template. Cada projeto começa do zero com design pensado para a sua marca e seus clientes.</div>
+    <div class="note-item"><div class="note-num">03</div><strong style="color:var(--text)">Hospedagem inclusa no preço</strong> — configuro tudo na Hostinger pra você: upload, SSL e site no ar. Você não precisa entender de técnico.</div>
+    <div class="note-item"><div class="note-num">04</div><strong style="color:var(--violet)">Domínio é pago à parte por você</strong> — se quiser um endereço próprio (ex: seusite.com.br), você registra no Registro.br por ~R$ 40/ano. Eu faço toda a configuração sem custo extra. Não quer agora? Pode adicionar depois sem refazer o site.</div>
+    <div class="note-item"><div class="note-num">05</div>O domínio fica sempre registrado no seu nome — autonomia total, independente de mim no futuro.</div>
+    <div class="note-item"><div class="note-num">06</div>Pagamento: 50% na aprovação do briefing + 50% na entrega. Sem cobranças surpresa no meio do projeto.</div>
+    <div class="note-item"><div class="note-num">07</div>Projetos de UI/interface e customizados: orçamento somente após briefing detalhado, sem compromisso.</div>
   </div>
 
   <!-- CTA -->
@@ -802,7 +755,6 @@ body::before {
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-logo">ariarch<span class="ext">.dev</span></div>
     <div class="footer-note">design &amp; código · 2026</div>
@@ -811,7 +763,6 @@ body::before {
 </div>
 
 <script>
-  // mobile nav toggle
   const hamburger = document.getElementById('navHamburger');
   const navLinks  = document.getElementById('navLinks');
   if (hamburger && navLinks) {
