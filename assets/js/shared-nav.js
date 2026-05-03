@@ -1,5 +1,5 @@
 /* ============================================================
-   ARIARCH.DEV — shared-nav.js
+   ARIARCH.TECH — shared-nav.js
    Navegação compartilhada entre todas as páginas
    ============================================================ */
 'use strict';

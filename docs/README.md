@@ -1,4 +1,4 @@
-# ariarch.dev — Projeto completo
+# ariarch.tech — Projeto completo
 
 Quatro páginas independentes conectadas por navegação compartilhada.
 
@@ -7,6 +7,7 @@ Quatro páginas independentes conectadas por navegação compartilhada.
 ```
 ariarch-final/
 ├── index.html              ← Portfólio principal (hero, projetos, experiência, contato)
+├── .htaccess               ← Configurações do servidor (HTTPS, Cache, Erro 404)
 ├── .gitignore
 │
 ├── pages/
@@ -55,7 +56,7 @@ pages/contato.html
 ```
 
 ## 🚀 Acesse
-https://arianearchanjo.github.io/ariane-dev-services/
+https://ariarch.tech/
 
 ---
-*Design & Código por ariarch.dev · 2026*
+*Design & Código por ariarch.tech · 2026*
