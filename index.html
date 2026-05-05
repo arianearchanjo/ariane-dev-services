@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ariarch.tech — Ariane Archanjo</title>
-  <meta name="description" content="Desenvolvedora front-end especializada em sites, landing pages e interfaces modernas." />
+  <meta name="description" content="Especialista em criar presença digital para pequenos negócios. Sites, cardápios digitais e páginas de vendas." />
   <link rel="canonical" href="https://ariarch.tech/" />
   <meta property="og:url" content="https://ariarch.tech/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ariarch.tech — Ariane Archanjo" />
-  <meta property="og:description" content="Desenvolvedora front-end especializada em sites, landing pages e interfaces modernas." />
+  <meta property="og:description" content="Especialista em criar presença digital para pequenos negócios. Sites, cardápios digitais e páginas de vendas." />
   <meta property="og:image" content="https://ariarch.tech/assets/img/perfil.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/shared.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
 
   <style>
@@ -70,6 +71,162 @@
     @media (max-width: 768px) {
       .nav-page-links { display: none; }
     }
+
+    /* ── PROJETOS CARROSSEL ── */
+    .carousel-outer { position: relative; }
+    .carousel-track-wrap { overflow: hidden; border-radius: 14px; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      gap: 0;
+    }
+    .slide {
+      min-width: 100%;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+    }
+    .slide-hero {
+      width: 100%; height: 380px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, var(--bg2) 100%);
+    }
+    .hero-browser {
+      width: 92%; height: 350px;
+      background: var(--bg3);
+      border-radius: 12px 12px 0 0;
+      border: 1px solid var(--border-hi);
+      overflow: hidden;
+      position: relative; z-index: 1;
+      margin-top: 30px;
+    }
+    .browser-bar {
+      background: var(--bg2); height: 28px;
+      display: flex; align-items: center;
+      padding: 0 12px; gap: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-bar .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .browser-url {
+      flex: 1; background: var(--bg);
+      border-radius: 4px; height: 16px; margin-left: 8px;
+      display: flex; align-items: center; padding: 0 8px;
+    }
+    .browser-url span { font-size: 8px; color: var(--text-mute); letter-spacing: 0.5px; font-family: 'Space Mono', monospace; }
+    .browser-content { height: calc(100% - 28px); overflow: hidden; position: relative; }
+    .browser-content img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .slide-links {
+      position: absolute; top: 12px; right: 14px;
+      display: flex; gap: 8px; z-index: 10;
+    }
+    .slide-link-btn {
+      width: 32px; height: 32px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-size: 11px; cursor: pointer;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .slide-link-btn:hover { color: var(--cyan); border-color: var(--cyan-bd); }
+    .slide-info { padding: 24px 26px; background: var(--bg2); }
+    .slide-category {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--violet-bg); color: var(--violet);
+      border: 1px solid var(--violet-bd);
+      margin-bottom: 12px; font-family: 'Space Mono', monospace;
+    }
+    .slide-name {
+      font-family: 'Raleway', sans-serif; font-weight: 800;
+      font-size: 22px; letter-spacing: -0.03em;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .slide-name em { color: var(--cyan); font-style: normal; }
+    .slide-desc {
+      font-size: 11px; color: var(--text-dim); line-height: 1.8;
+      margin-bottom: 18px; font-family: 'Raleway', sans-serif;
+    }
+    .tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tech-tag {
+      font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 4px;
+      background: var(--bg3); color: var(--text-mute);
+      border: 1px solid var(--border);
+      font-family: 'Space Mono', monospace;
+    }
+    .btn-visit {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 24px; border-radius: 8px;
+      background: var(--cyan); color: var(--bg);
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.2s var(--ease);
+      border: 1px solid var(--cyan);
+    }
+    .btn-visit:hover { 
+      background: transparent; color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px var(--cyan-glow);
+    }
+    .carousel-nav {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-top: 20px; padding: 0 2px;
+    }
+    .nav-dots { display: flex; gap: 6px; align-items: center; }
+    .nav-dot {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--border-hi); cursor: pointer;
+      transition: all 0.3s;
+    }
+    .nav-dot.active { background: var(--cyan); width: 20px; }
+    .nav-btns { display: flex; gap: 8px; }
+    .nav-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg2); color: var(--text-dim);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-family: monospace; transition: all 0.2s;
+    }
+    .nav-btn:hover { background: var(--cyan-bg); border-color: var(--cyan-bd); color: var(--cyan); }
+    .counter-text { font-size: 9px; color: var(--text-mute); letter-spacing: 2px; font-family: 'Space Mono', monospace; }
+    .counter-text span { color: var(--cyan); }
+
+    /* ── RESPONSIVIDADE CARROSSEL ── */
+    @media (max-width: 768px) {
+      .slide-hero { height: 260px; }
+      .hero-browser { height: 230px; width: 90%; }
+      .slide-info { padding: 18px 20px; }
+      .slide-name { font-size: 18px; }
+      .slide-desc { font-size: 10px; margin-bottom: 12px; }
+      .tech-row { margin-bottom: 15px; }
+      .btn-visit { padding: 10px 20px; font-size: 9px; width: 100%; justify-content: center; }
+      .slide-links { top: 10px; right: 10px; }
+      .slide-link-btn { width: 28px; height: 28px; font-size: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .slide-hero { height: 200px; }
+      .hero-browser { height: 175px; margin-top: 20px; }
+      .browser-bar { height: 22px; padding: 0 8px; }
+      .browser-bar .dot { width: 6px; height: 6px; }
+      .browser-url { height: 12px; margin-left: 6px; }
+      .browser-url span { font-size: 6px; }
+      .slide-info { padding: 15px; }
+      .slide-category { font-size: 7px; padding: 3px 8px; margin-bottom: 8px; }
+      .slide-name { font-size: 16px; }
+      .slide-desc { font-size: 9px; line-height: 1.6; }
+      .tech-tag { font-size: 7px; padding: 2px 7px; }
+    }
   </style>
 </head>
 <body>
@@ -78,34 +235,26 @@
   <div class="cursor-follower" id="cursorFollower"></div>
 
   <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Início">
+  <nav class="site-nav" id="siteNav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__logo">
         ariarch<span class="ext">.tech</span>
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services"   class="nav-link">// serviços</a></li>
-        <li><a href="#about"      class="nav-link">// sobre</a></li>
-        <li><a href="#projects"   class="nav-link">// projetos</a></li>
-        <li><a href="#experience" class="nav-link">// trajetória</a></li>
-        <li><a href="#contact"    class="nav-link">// contato</a></li>
+      <ul class="site-nav__links" id="navLinks">
+        <li><a href="#projects"    data-anchor="projects">Projetos</a></li>
+        <li><a href="#services"    data-anchor="services">Serviços</a></li>
+        <li><a href="#about"       data-anchor="about">Sobre</a></li>
+        <li><a href="#experience"  data-anchor="experience">Trajetória</a></li>
+        <li><a href="pages/bio.html" data-page="bio.html">Bio</a></li>
+        <li><a href="pages/precos.html" data-page="precos.html">Preços</a></li>
       </ul>
 
-      <!-- Links para as outras páginas do site -->
-      <div class="nav-page-links">
-        <a href="pages/bio.html"     class="nav-page-link">Bio</a>
-        <a href="pages/precos.html"  class="nav-page-link">Preços</a>
-        <a href="https://wa.me/5541997392226?text=Oi!%20Vi%20seu%20portfólio%20e%20quero%20um%20orçamento" class="nav-page-link cta" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Orçamento
-        </a>
-      </div>
-
-      <div class="nav-actions">
+      <div class="site-nav__actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
           <i class="fas fa-moon" id="themeIcon"></i>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <button class="site-nav__hamburger" id="navHamburger" aria-label="Abrir menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -123,33 +272,24 @@
       </div>
 
       <h1 class="hero-name reveal">
-        <span class="line">Seu negócio</span>
-        <span class="line accent2">merece um site</span>
-        <span class="line accent">que converte.</span>
+        <span class="line">Seu negócio na internet.</span>
+        <span class="line accent" id="typedText">Do jeito certo.</span>
       </h1>
 
       <p class="hero-tagline reveal">
-        Desenvolvo interfaces modernas e funcionais para empresas e projetos digitais.
-      </p>
-
-      <p class="hero-title reveal">
-        <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+        Transformo negócios reais em presença digital real. Você cuida dos seus clientes, eu cuido do seu site.
       </p>
 
       <p class="hero-desc reveal">
-        Sou Ariane Archanjo, desenvolvedora front-end com experiência em sistemas reais.
-        Transformo ideias em produtos digitais com código limpo, entrega no prazo e comunicação clara.
+        Simples, rápido e sem complicação técnica. A presença digital que você sempre quis para passar confiança e atrair mais vendas.
       </p>
 
       <div class="hero-cta reveal">
         <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="btn btn-primary">
-          <i class="fab fa-whatsapp"></i> Solicitar orçamento
+          <i class="fab fa-whatsapp"></i> Quero meu site →
         </a>
         <a href="pages/precos.html" class="btn btn-outline-cyan">
           <i class="fas fa-tags"></i> Tabela de Preços
-        </a>
-        <a href="#projects" class="btn btn-ghost">
-          <i class="fas fa-eye"></i> Ver projetos
         </a>
       </div>
 
@@ -157,11 +297,323 @@
     </div>
   </section>
 
+  <!-- ===================== PROJETOS — CARROSSEL ===================== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label reveal"><span>// 01</span> portfólio</div>
+      <h2 class="section-title reveal">Projetos <strong>entregues</strong></h2>
+      <p class="section-sub reveal">
+        Cada projeto foi construído com um objetivo real — resolver um problema, gerar resultado
+        ou criar presença digital para alguém.
+      </p>
+
+      <div class="carousel-outer reveal">
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="projectsTrack">
+
+            <!-- SLIDE 1 — Churros Mania -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#1a1200 0%,#0e1117 60%,#1a0800 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(0,212,232,0.08) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>churrosmania.netlify.app</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/Churros Mania.png" alt="Screenshot Churros Mania">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="slide-links">
+                  <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="slide-link-btn" style="font-size:10px;">gh</a>
+                </div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category" style="background:rgba(0,212,232,0.1);color:#00d4e8;border-color:rgba(0,212,232,0.2);">cardápio digital com pedido direto via whatsapp</div>
+                <div class="slide-name">Churros <em>Mania</em></div>
+                <div class="slide-desc">O negócio precisava de um jeito de receber pedidos sem pagar mensalidade de app. Criamos um cardápio digital onde o cliente monta o pedido e ele chega formatado direto no WhatsApp.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">html5</span><span class="tech-tag">css3</span>
+                  <span class="tech-tag">javascript</span><span class="tech-tag">whatsapp api</span><span class="tech-tag">netlify</span>
+                </div>
+                <a href="https://churrosmania.netlify.app/" target="_blank" rel="noopener" class="btn-visit">
+                  Ver Cardápio <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 — Cantinho do Amigurumi -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#1a0e2e 0%,#0e1117 60%,#0d1f1a 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(168,85,247,0.12) 0%,transparent 60%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>cantinho-amigurumi.netlify.app</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/Cantinho do Amigurumi.png" alt="Screenshot Cantinho do Amigurumi">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="slide-links">
+                  <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="slide-link-btn" style="font-size:10px;">gh</a>
+                </div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category">presença digital completa e catálogo online</div>
+                <div class="slide-name">Cantinho do <em>Amigurumi</em></div>
+                <div class="slide-desc">O desafio era organizar as encomendas e mostrar os produtos de forma profissional. Desenvolvemos um catálogo digital que facilita a escolha do cliente e agiliza o pedido pelo WhatsApp.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">html5</span><span class="tech-tag">css3</span>
+                  <span class="tech-tag">javascript</span><span class="tech-tag">bootstrap 5</span><span class="tech-tag">netlify</span>
+                </div>
+                <a href="https://cantinho-amigurumi.netlify.app/" target="_blank" rel="noopener" class="btn-visit">
+                  Visitar Site <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 — Accounting Pro -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0e1525 0%,#0e1117 60%,#1a2030 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(0,212,232,0.1) 0%,transparent 60%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>accounting-pro.netlify.app</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/Contabilidade Estratégica.png" alt="Screenshot Accounting Pro">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="slide-links">
+                  <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="slide-link-btn" style="font-size:10px;">gh</a>
+                </div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category" style="background:rgba(0,212,232,0.1);color:#00d4e8;border-color:rgba(0,212,232,0.2);">landing page estratégica de alta conversão</div>
+                <div class="slide-name">Accounting <em>Pro</em></div>
+                <div class="slide-desc">Página de alta performance focada em autoridade. Um site moderno que passa confiança e profissionalismo para quem busca atrair novos clientes qualificados.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">html5</span><span class="tech-tag">css3</span>
+                  <span class="tech-tag">javascript vanilla</span><span class="tech-tag">bootstrap 5</span>
+                </div>
+                <a href="https://arianearchanjo.github.io/contabilidade-estrategica-template/" target="_blank" rel="noopener" class="btn-visit">
+                  Visitar Site <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 4 — UniCaronas -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0a1117 0%,#0e1117 60%,#0a1520 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(0,212,232,0.07) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>unicaronas · fullstack</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/UniCaronas.png" alt="Screenshot UniCaronas">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category">plataforma fullstack com auth e chat em tempo real</div>
+                <div class="slide-name">Uni<em>Caronas</em></div>
+                <div class="slide-desc">Sistema de caronas universitárias que ajuda estudantes a economizar e viajar com segurança através de uma interface simples e direta.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">node.js</span><span class="tech-tag">express</span>
+                  <span class="tech-tag">postgresql</span><span class="tech-tag">jwt</span>
+                </div>
+                <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="btn-visit">
+                  Ver Código <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 5 — GitHub Profile Search -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0d1117 0%,#0e1117 60%,#0d1520 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(0,212,232,0.06) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>github-profile-search · react</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/github.jpg" alt="Screenshot GitHub Profile Search">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category">interface react consumindo api com tratamento de erros</div>
+                <div class="slide-name">GitHub <em>Profile Search</em></div>
+                <div class="slide-desc">Uma ferramenta rápida para encontrar profissionais no GitHub, com visual limpo e busca instantânea de informações.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">react</span><span class="tech-tag">tailwind css</span>
+                  <span class="tech-tag">vite</span><span class="tech-tag">github api</span>
+                </div>
+                <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="btn-visit">
+                  Ver Repositório <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 6 — Sistema de Estoque -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0a1a10 0%,#0e1117 60%,#0a1010 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 35% 45%,rgba(34,217,112,0.07) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>sistema-estoque · c# .net</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/crud-console.jpg" alt="Screenshot Sistema de Estoque">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category" style="background:rgba(34,217,112,0.08);color:#22d970;border-color:rgba(34,217,112,0.2);">crud completo com persistência e relatórios gerenciais</div>
+                <div class="slide-name">Sistema de <em style="color:#22d970;">Estoque</em></div>
+                <div class="slide-desc">Organização de produtos e vendas de forma simples e segura, ideal para quem quer sair do papel ou das planilhas complicadas.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">c#</span><span class="tech-tag">.net</span>
+                  <span class="tech-tag">console app</span><span class="tech-tag">csv</span>
+                </div>
+                <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" class="btn-visit">
+                  Ver Projeto <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 7 — Narrativa Blog -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0a1a1a 0%,#0e1117 60%,#0a0d1a 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(34,217,112,0.06) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>narrativa.blog</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/Narrativa.png" alt="Screenshot Narrativa Blog">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category" style="background:rgba(34,217,112,0.08);color:#22d970;border-color:rgba(34,217,112,0.2);">plataforma cms com portal público e dashboard administrativo</div>
+                <div class="slide-name">Narrativa <em style="color:#22d970;">Blog</em></div>
+                <div class="slide-desc">Plataforma moderna de publicação com portal otimizado para SEO, sistema de busca e categorias, e painel administrativo para gestão fácil de conteúdo.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">next.js 15</span><span class="tech-tag">typescript</span>
+                  <span class="tech-tag">tailwind css</span><span class="tech-tag">shadcn/ui</span><span class="tech-tag">rbac</span>
+                </div>
+                <a href="https://narrativa.blog/" target="_blank" rel="noopener" class="btn-visit">
+                  Acessar Blog <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- SLIDE 8 — ScopeFlow -->
+            <div class="slide">
+              <div class="slide-hero">
+                <div class="hero-bg" style="background:linear-gradient(135deg,#0a0d1a 0%,#0e1117 60%,#110a1a 100%);">
+                  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(168,85,247,0.10) 0%,transparent 55%);"></div>
+                </div>
+                <div class="hero-browser">
+                  <div class="browser-bar">
+                    <div class="dot" style="background:#ff5f56;"></div>
+                    <div class="dot" style="background:#ffbd2e;"></div>
+                    <div class="dot" style="background:#27c93f;"></div>
+                    <div class="browser-url"><span>scopeflow · saas</span></div>
+                  </div>
+                  <div class="browser-content">
+                    <img src="assets/img/projetos/ScopeFlow.png" alt="Screenshot ScopeFlow">
+                  </div>
+                </div>
+                <div class="hero-overlay"></div>
+              </div>
+              <div class="slide-info">
+                <div class="slide-category" style="background:rgba(168,85,247,0.1);color:#a855f7;border-color:rgba(168,85,247,0.2);">saas de precificação e gestão de orçamentos para devs freelancers</div>
+                <div class="slide-name">Scope<em style="color:#a855f7;">Flow</em></div>
+                <div class="slide-desc">Plataforma para profissionais que precisam organizar orçamentos e cobrar de forma justa, com visualização clara de lucros e prazos.</div>
+                <div class="tech-row">
+                  <span class="tech-tag">next.js</span><span class="tech-tag">typescript</span>
+                  <span class="tech-tag">tailwind css 4</span><span class="tech-tag">recharts</span><span class="tech-tag">framer motion</span>
+                </div>
+                <a href="https://github.com/arianearchanjo/scopeflow" target="_blank" rel="noopener" class="btn-visit">
+                  Ver no GitHub <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+          </div><!-- /carousel-track -->
+        </div><!-- /carousel-track-wrap -->
+
+        <div class="carousel-nav">
+          <div class="counter-text"><span id="projCur">01</span> / 08</div>
+          <div class="nav-dots" id="projDots">
+            <div class="nav-dot active" onclick="projGoTo(0)"></div>
+            <div class="nav-dot" onclick="projGoTo(1)"></div>
+            <div class="nav-dot" onclick="projGoTo(2)"></div>
+            <div class="nav-dot" onclick="projGoTo(3)"></div>
+            <div class="nav-dot" onclick="projGoTo(4)"></div>
+            <div class="nav-dot" onclick="projGoTo(5)"></div>
+            <div class="nav-dot" onclick="projGoTo(6)"></div>
+            <div class="nav-dot" onclick="projGoTo(7)"></div>
+          </div>
+          <div class="nav-btns">
+            <button class="nav-btn" onclick="projPrev()">←</button>
+            <button class="nav-btn" onclick="projNext()">→</button>
+          </div>
+        </div>
+
+      </div><!-- /carousel-outer -->
+    </div><!-- /container -->
+  </section>
+
   <!-- ===================== SERVIÇOS ===================== -->
   <section class="services section" id="services">
     <div class="container">
       <div class="section-label reveal">
-        <span>// 01</span> o que eu faço
+        <span>// 02</span> o que eu faço
       </div>
       <h2 class="section-title reveal">
         Serviços que <strong>geram resultado</strong>
@@ -175,53 +627,53 @@
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-globe"></i></div>
-          <div class="service-name">Sites <strong>institucionais</strong></div>
+          <div class="service-name">Site <strong>profissional completo</strong></div>
           <p class="service-desc">
-            Presença digital profissional para sua empresa ou marca. Design único, responsivo e
-            otimizado para SEO — pronto para impressionar desde o primeiro acesso.
+            Sua marca com uma presença digital de respeito. Design exclusivo, rápido e 
+            preparado para ser encontrado por novos clientes no Google.
           </p>
           <div class="service-benefit">
             <i class="fas fa-arrow-right"></i>
-            Mais credibilidade e confiança para o cliente
+            Você ganha mais credibilidade e profissionalismo
           </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-bullseye"></i></div>
-          <div class="service-name">Landing <strong>pages</strong></div>
+          <div class="service-name">Página de <strong>vendas (Landing Page)</strong></div>
           <p class="service-desc">
-            Páginas focadas em conversão para campanhas, produtos ou serviços.
-            CTA estratégico, hierarquia visual clara e carregamento rápido.
+            Uma página focada em um único objetivo: transformar visitantes em clientes. 
+            Ideal para divulgar um serviço específico ou produto.
           </p>
           <div class="service-benefit">
             <i class="fas fa-arrow-right"></i>
-            Mais leads e vendas para sua campanha
+            Você ganha uma ferramenta poderosa de conversão
           </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-store"></i></div>
-          <div class="service-name">Sites para <strong>pequenos negócios</strong></div>
+          <div class="service-name">Cardápio ou <strong>Catálogo Digital</strong></div>
           <p class="service-desc">
-            Cardápios digitais, catálogos de produtos, integração com WhatsApp e redes sociais.
-            Solução acessível com resultado profissional.
+            Receba pedidos direto no seu WhatsApp sem pagar mensalidade ou taxas de aplicativos. 
+            Simples para você e prático para o seu cliente.
           </p>
           <div class="service-benefit">
             <i class="fas fa-arrow-right"></i>
-            Venda online sem complexidade
+            Você ganha autonomia e economiza em taxas
           </div>
         </div>
 
         <div class="service-card reveal">
           <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <div class="service-name">Interfaces <strong>front-end</strong></div>
+          <div class="service-name">Sistemas e <strong>interfaces sob medida</strong></div>
           <p class="service-desc">
-            Desenvolvimento de interfaces para sistemas web, dashboards e aplicações.
-            HTML, CSS e JavaScript puros ou com React e Next.js.
+            Soluções personalizadas para organizar o seu dia a dia ou o do seu cliente. 
+            Tudo feito pensando na facilidade de uso.
           </p>
           <div class="service-benefit">
             <i class="fas fa-arrow-right"></i>
-            Interface que o usuário quer usar
+            Você ganha processos mais rápidos e organizados
           </div>
         </div>
 
@@ -233,7 +685,7 @@
   <section class="about section" id="about">
     <div class="container">
       <div class="section-label reveal">
-        <span>// 02</span> sobre mim
+        <span>// 03</span> sobre mim
       </div>
 
       <div class="about-grid">
@@ -243,18 +695,17 @@
           </h2>
           <div class="about-body reveal">
             <p>
-              Sou desenvolvedora front-end com experiência comprovada em sistemas reais —
-              não só em projetos de portfólio. Atuo na <strong>Prefeitura de Campina Grande do Sul</strong>
-              desenvolvendo sistemas municipais com Next.js, e tive passagem pela
-              <strong>Cidade Júnior</strong> no módulo financeiro com PostgreSQL.
+              Sou desenvolvedora apaixonada por transformar ideias em soluções digitais que funcionam. 
+              Cada projeto começa com uma <strong>conversa real sobre o que você precisa</strong> — 
+              não com um template pronto ou jargões complicados.
             </p>
             <p>
-              Curso <strong>Engenharia de Software</strong> na Unibrasil (bolsista integral),
-              o que me mantém sempre atualizada com boas práticas de desenvolvimento.
-              Entrego projetos com organização, documentação e comunicação direta.
+              Atualmente atuo no setor público desenvolvendo sistemas que facilitam o dia a dia das pessoas, 
+              o que me trouxe uma base sólida de organização e compromisso com prazos.
             </p>
             <p>
-              Para clientes: entrego o que foi combinado, no prazo, com código que pode crescer.
+              Para você: entrego o que foi combinado, no prazo, com um site que passa confiança 
+              e está pronto para crescer junto com o seu negócio.
             </p>
           </div>
           <a href="https://wa.me/5541997392226" target="_blank" rel="noopener" class="btn btn-primary reveal">
@@ -280,7 +731,7 @@
               </div>
               <div class="card-row">
                 <i class="fas fa-code-branch"></i>
-                <span>Entrega com código documentado</span>
+                <span>Entrega com tudo configurado</span>
               </div>
               <div class="card-row">
                 <i class="fas fa-comments"></i>
@@ -307,213 +758,19 @@
         </div>
         <div class="diff-card reveal">
           <div class="diff-icon"><i class="fas fa-code"></i></div>
-          <div class="diff-title"><strong>Código</strong> limpo</div>
-          <p class="diff-desc">Código organizado, comentado e que pode ser mantido e evoluído facilmente.</p>
+          <div class="diff-title"><strong>Design</strong> único</div>
+          <p class="diff-desc">Nada de templates prontos. Seu site terá a cara da sua marca.</p>
         </div>
         <div class="diff-card reveal">
           <div class="diff-icon"><i class="fas fa-comments"></i></div>
-          <div class="diff-title"><strong>Comunicação</strong> direta</div>
+          <div class="diff-title"><strong>Comunicação</strong> humana</div>
           <p class="diff-desc">Atualizações constantes. Sem sumiço, sem jargão técnico desnecessário.</p>
         </div>
         <div class="diff-card reveal">
           <div class="diff-icon"><i class="fas fa-mobile-alt"></i></div>
-          <div class="diff-title">100% <strong>responsivo</strong></div>
-          <p class="diff-desc">Tudo funciona perfeitamente no celular, tablet e desktop.</p>
+          <div class="diff-title">100% <strong>no celular</strong></div>
+          <p class="diff-desc">Tudo funciona perfeitamente onde o seu cliente mais acessa.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROJETOS ===================== -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="section-label reveal">
-        <span>// 03</span> portfólio
-      </div>
-      <h2 class="section-title reveal">Projetos <strong>entregues</strong></h2>
-      <p class="section-sub reveal">
-        Cada projeto aqui foi construído com um objetivo real — resolver um problema, gerar resultado
-        ou criar presença digital para alguém.
-      </p>
-
-      <div class="projects-grid">
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fas fa-palette"></i></div>
-            <div class="project-links">
-              <a href="https://cantinho-amigurumi.netlify.app/" target="_blank" rel="noopener" aria-label="Ver ao vivo"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">Cantinho do <strong>Amigurumi</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            Presença digital completa para ateliê artesanal
-          </div>
-          <p class="project-desc">
-            Site institucional com catálogo de 6 coleções, galeria com filtros por categoria,
-            sistema de encomendas integrado ao WhatsApp e layout responsivo do zero.
-          </p>
-          <div class="project-tech">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-            <span>Bootstrap 5</span><span>Netlify</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fas fa-store"></i></div>
-            <div class="project-links">
-              <a href="https://churrosmania.netlify.app/" target="_blank" rel="noopener" aria-label="Ver ao vivo"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">Churros <strong>Mania</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            Cardápio digital com pedido direto via WhatsApp
-          </div>
-          <p class="project-desc">
-            Landing page de delivery com cardápio interativo, carrinho lateral e seleção
-            de confeitos por item. O pedido chega formatado direto no WhatsApp do negócio.
-          </p>
-          <div class="project-tech">
-            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-            <span>WhatsApp API</span><span>Netlify</span>
-          </div>
-        </article>
-        <article class="project-card reveal">
-  <div class="project-top">
-    <div class="project-icons"><i class="fas fa-newspaper"></i></div>
-    <div class="project-links">
-      <a href="https://narrativa.blog/" target="_blank" rel="noopener" aria-label="Ver ao vivo"><i class="fas fa-external-link-alt"></i></a>
-    </div>
-  </div>
-  <h3 class="project-name">Narrativa <strong>Blog</strong></h3>
-  <div class="project-result">
-    <i class="fas fa-chart-line"></i>
-    Plataforma CMS com portal público e dashboard administrativo
-  </div>
-  <p class="project-desc">
-    Plataforma moderna de publicação de conteúdo com portal otimizado para SEO,
-    sistema de busca e categorias, e painel administrativo com controle de acesso
-    por cargos (RBAC). Desenvolvida em colaboração como Frontend Developer.
-  </p>
-  <div class="project-tech">
-    <span>Next.js 15</span><span>TypeScript</span><span>Tailwind CSS</span>
-    <span>Shadcn/UI</span><span>Framer Motion</span><span>Better-Auth</span>
-  </div>
-</article>
-
-<article class="project-card reveal">
-  <div class="project-top">
-    <div class="project-icons"><i class="fas fa-file-invoice-dollar"></i></div>
-    <div class="project-links">
-      <a href="https://github.com/arianearchanjo/scopeflow" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-  </div>
-  <h3 class="project-name">Scope<strong>Flow</strong></h3>
-  <div class="project-result">
-    <i class="fas fa-chart-line"></i>
-    SaaS de precificação e gestão de orçamentos para devs freelancers
-  </div>
-  <p class="project-desc">
-    Plataforma SaaS que transforma levantamento de requisitos em orçamentos
-    profissionais com editor "live", catálogo inteligente de escopos, cálculo
-    em tempo real e dashboard de métricas. Atuei como Frontend Developer em parceria com dev backend.
-  </p>
-  <div class="project-tech">
-    <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS 4</span>
-    <span>Shadcn/UI</span><span>Recharts</span><span>Framer Motion</span>
-  </div>
-</article>
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fas fa-car"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">Uni<strong>Caronas</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            Plataforma fullstack com auth e chat em tempo real
-          </div>
-          <p class="project-desc">
-            Sistema de caronas universitárias com autenticação via JWT, chat entre usuários
-            e algoritmo de sugestão de preço por trajeto. Fullstack com Node.js e PostgreSQL.
-          </p>
-          <div class="project-tech">
-            <span>Node.js</span><span>Express</span>
-            <span>PostgreSQL</span><span>JWT</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fab fa-github"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">GitHub <strong>Profile Search</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            Interface React consumindo API com tratamento de erros
-          </div>
-          <p class="project-desc">
-            Aplicação React que consome a API pública do GitHub em tempo real.
-            Interface responsiva com feedback visual de carregamento e erros.
-          </p>
-          <div class="project-tech">
-            <span>React</span><span>Tailwind CSS</span>
-            <span>Vite</span><span>GitHub API</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fas fa-boxes-stacked"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">Sistema de <strong>Estoque</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            CRUD completo com persistência e relatórios gerenciais
-          </div>
-          <p class="project-desc">
-            Controle de estoque com entradas, saídas e relatórios. Persistência em CSV
-            com escrita atômica para garantir integridade dos dados. C# e .NET.
-          </p>
-          <div class="project-tech">
-            <span>C#</span><span>.NET</span><span>Console App</span><span>CSV</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-icons"><i class="fas fa-globe"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/arianearchanjo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3 class="project-name">Wikipedia <strong>Redesign</strong></h3>
-          <div class="project-result">
-            <i class="fas fa-chart-line"></i>
-            Exercício de redesign com foco em hierarquia visual
-          </div>
-          <p class="project-desc">
-            Recriação modernizada do layout da Wikipedia. Exercício de design de interfaces
-            com ênfase em tipografia, espaçamento e legibilidade. Bootcamp Santander/DIO.
-          </p>
-          <div class="project-tech">
-            <span>HTML5</span><span>CSS3</span>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -573,9 +830,9 @@
   <section class="experience section" id="experience">
     <div class="container">
       <div class="section-label reveal">
-        <span>// 05</span> experiência &amp; formação
+        <span>// 05</span> trajetória
       </div>
-      <h2 class="section-title reveal">Minha <strong>trajetória</strong></h2>
+      <h2 class="section-title reveal">Minha <strong>história</strong></h2>
 
       <div class="timeline-wrap">
         <div class="timeline-col reveal">
@@ -587,8 +844,8 @@
                 <span class="tl-date">Fev 2026 → atual</span>
                 <h4>Estagiária em Desenvolvimento Web</h4>
                 <p class="tl-company">Prefeitura de Campina Grande do Sul</p>
-                <p class="tl-desc">Desenvolvimento de melhorias de layout e UX em sistemas municipais. Next.js, HTML, CSS e JS com foco em acessibilidade.</p>
-                <div class="tl-tags"><span>Next.js</span><span>HTML/CSS</span><span>JavaScript</span></div>
+                <p class="tl-desc">Desenvolvimento de melhorias de layout e experiência do usuário em sistemas municipais.</p>
+                <div class="tl-tags"><span>Foco em Facilidade de Uso</span><span>Acessibilidade</span></div>
               </div>
             </div>
             <div class="timeline-item">
@@ -597,8 +854,8 @@
                 <span class="tl-date">Mai 2025 → Dez 2025</span>
                 <h4>Estagiária em TI</h4>
                 <p class="tl-company">Cidade Júnior</p>
-                <p class="tl-desc">Módulo financeiro de sistema interno. Consultas PostgreSQL, implementação de funcionalidades e documentação técnica.</p>
-                <div class="tl-tags"><span>PostgreSQL</span><span>Módulo Financeiro</span></div>
+                <p class="tl-desc">Módulo financeiro de sistema interno. Organização de dados e melhorias em funcionalidades.</p>
+                <div class="tl-tags"><span>Gestão de Dados</span><span>Sistemas Internos</span></div>
               </div>
             </div>
           </div>
@@ -624,41 +881,35 @@
                 <p class="tl-company">Universidade Positivo</p>
               </div>
             </div>
-            <div class="timeline-item">
-              <div class="tl-dot"></div>
-              <div class="tl-content">
-                <span class="tl-date">2025</span>
-                <h4>Bootcamp Front-End</h4>
-                <p class="tl-company">DIO + Santander</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="achievements">
-        <h3 class="timeline-heading" style="margin-top: 2.5rem;"><i class="fas fa-star"></i> Destaques</h3>
-        <div class="highlights-grid">
-          <div class="highlight-card">
-            <span class="hl-date">2025</span>
-            <strong>Publicação Científica — EVINCI</strong>
-            <span class="hl-sub">Unibrasil · "Oficinas de Tecnologia para Alunos do Ensino Fundamental"</span>
-          </div>
-          <div class="highlight-card">
-            <span class="hl-date">2019 · 2022 · 2023</span>
-            <strong>3× Menção Honrosa OBMEP</strong>
-            <span class="hl-sub">Olimpíada Brasileira de Matemática</span>
-          </div>
-          <div class="highlight-card highlight-active">
-            <span class="hl-date">2025 → atual</span>
-            <strong>Representante de Turma</strong>
-            <span class="hl-sub">Eng. Software — Unibrasil</span>
-          </div>
-          <div class="highlight-card">
-            <span class="hl-date">Bootcamp 2025</span>
-            <strong>Front-End Santander</strong>
-            <span class="hl-sub">DIO + Santander</span>
-          </div>
+  <!-- ===================== COMO FUNCIONA ===================== -->
+  <section class="how-it-works section" id="how-it-works">
+    <div class="container">
+      <div class="section-label reveal"><span>// 06</span> processo</div>
+      <h2 class="section-title reveal">Como <strong>funciona</strong></h2>
+      
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-comments" style="font-size: 1.5rem; color: var(--cyan);"></i></div>
+          <div class="service-name">1. Me conta o que <strong>você precisa</strong></div>
+          <p class="service-desc">Uma conversa rápida pelo WhatsApp, sem compromisso, para eu entender seu objetivo e tirar todas as suas dúvidas.</p>
+        </div>
+        
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-code" style="font-size: 1.5rem; color: var(--cyan);"></i></div>
+          <div class="service-name">2. Eu desenvolvo <strong>o seu site</strong></div>
+          <p class="service-desc">Você acompanha cada etapa do processo e aprova o visual antes de publicarmos. Tudo feito sob medida para você.</p>
+        </div>
+        
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-rocket" style="font-size: 1.5rem; color: var(--cyan);"></i></div>
+          <div class="service-name">3. Seu site <strong>vai ao ar</strong></div>
+          <p class="service-desc">Entrego tudo configurado e funcionando. Você não precisa de nenhum conhecimento técnico, eu cuido de tudo.</p>
         </div>
       </div>
     </div>
@@ -682,9 +933,6 @@
           </a>
           <a href="pages/precos.html" class="btn btn-outline-cyan">
             <i class="fas fa-tags"></i> Tabela de Preços
-          </a>
-          <a href="pages/bio.html" class="btn btn-ghost">
-            <i class="fas fa-address-card"></i> Bio & Links
           </a>
         </div>
       </div>
@@ -761,5 +1009,56 @@
   </button>
 
   <script src="assets/js/portfolio.js"></script>
+  <script>
+    (function() {
+      let projCur = 0;
+      const projTotal = 8;
+      const projTrack = document.getElementById('projectsTrack');
+      const projDots  = document.querySelectorAll('#projDots .nav-dot');
+      const projCurEl = document.getElementById('projCur');
+
+      window.projGoTo = function(n) {
+        projCur = n;
+        if (projTrack) projTrack.style.transform = 'translateX(-' + (projCur * 100) + '%)';
+        projDots.forEach((d, i) => d.classList.toggle('active', i === projCur));
+        if (projCurEl) projCurEl.textContent = String(projCur + 1).padStart(2, '0');
+      };
+      window.projNext = function() { projGoTo((projCur + 1) % projTotal); };
+      window.projPrev = function() { projGoTo((projCur - 1 + projTotal) % projTotal); };
+
+      // Auto-play 5s
+      let autoPlay = setInterval(projNext, 5000);
+      const outer = document.querySelector('.carousel-outer');
+      if (outer) {
+        outer.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        outer.addEventListener('mouseleave', () => {
+          clearInterval(autoPlay);
+          autoPlay = setInterval(projNext, 5000);
+        });
+      }
+
+      /* Swipe mobile */
+      let startX = 0;
+      const wrap = document.querySelector('.carousel-track-wrap');
+      if (wrap) {
+        wrap.addEventListener('touchstart', e => { 
+          startX = e.touches[0].clientX;
+          clearInterval(autoPlay);
+        }, { passive: true });
+        wrap.addEventListener('touchend', e => {
+          const diff = startX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) diff > 0 ? projNext() : projPrev();
+          clearInterval(autoPlay);
+          autoPlay = setInterval(projNext, 5000);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

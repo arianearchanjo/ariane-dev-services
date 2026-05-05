@@ -4,15 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ariarch.tech — Bio & Links</title>
-<meta name="description" content="Ariane Archanjo — desenvolvedora front-end. Links, contatos e redes sociais.">
+<meta name="description" content="Ariane Archanjo — Especialista em presença digital para o seu negócio. Links, contatos e redes sociais.">
 <link rel="canonical" href="https://ariarch.tech/pages/bio.html" />
 <meta property="og:url" content="https://ariarch.tech/pages/bio.html" />
 <link rel="icon" href="../assets/img/icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <link rel="stylesheet" href="../assets/css/shared.css">
 <style>
+[data-theme="light"] {
+  --bg:        #f8fafc;
+  --bg2:       #f1f5f9;
+  --bg3:       #e2e8f0;
+  --border:    rgba(0,0,0,0.06);
+  --border-hi: rgba(0,0,0,0.1);
+  --text:      #0f172a;
+  --text-dim:  #334155;
+  --text-mute: #64748b;
+  --cyan:      #0891b2;
+  --cyan-bg:   rgba(8, 145, 178, 0.06);
+  --cyan-bd:   rgba(8, 145, 178, 0.18);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-head);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+[data-theme="dark"] body::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
+}
+
 .page {
   max-width: 480px;
   margin: 0 auto;
@@ -133,14 +172,18 @@
   <div class="site-nav__inner">
     <a href="../index.html" class="site-nav__logo">ariarch<span class="ext">.tech</span></a>
     <ul class="site-nav__links" id="navLinks" role="list">
-      <li><a href="../index.html" data-page="portfolio"><svg class="nav-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1" width="10" height="8" rx="1"/><path d="M4 10v2M8 10v2M2 12h8"/></svg>Portfólio</a></li>
+      <li><a href="../index.html" data-page="index.html"><svg class="nav-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1" width="10" height="8" rx="1"/><path d="M4 10v2M8 10v2M2 12h8"/></svg>Portfólio</a></li>
       <li><a href="bio.html" data-page="bio.html"><svg class="nav-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 5.5L6 1l5 4.5V11H8V8H4v3H1z"/></svg>Bio</a></li>
       <li><a href="precos.html" data-page="precos.html"><svg class="nav-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="2" width="10" height="8" rx="1"/><path d="M4 5.5h4M6 4v3"/></svg>Preços</a></li>
-      <li><a href="https://wa.me/5541997392226?text=Oi!%20Vi%20seu%20Instagram%20e%20quero%20um%20orçamento" class="site-nav__cta" target="_blank" rel="noopener">Orçamento</a></li>
     </ul>
-    <button class="site-nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="site-nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 

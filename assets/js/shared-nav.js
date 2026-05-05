@@ -4,6 +4,32 @@
    ============================================================ */
 'use strict';
 
+(function initSharedTheme() {
+  const html = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    html.setAttribute('data-theme', saved);
+    updateIcon(saved);
+  }
+
+  const toggle = document.getElementById('themeToggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next    = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon(next);
+    });
+  }
+
+  function updateIcon(theme) {
+    const icon = document.getElementById('themeIcon');
+    if (!icon) return;
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  }
+})();
+
 (function initSharedNav() {
   const hamburger = document.getElementById('navHamburger');
   const links     = document.getElementById('navLinks');
